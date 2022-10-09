@@ -13,7 +13,7 @@ class CategoryParts(models.Model):
 
 
 class Car(models.Model):
-    name_car = models.CharField(verbose_name='Название автомобиля')
+    name_car = models.CharField(max_length=250, verbose_name='Название автомобиля')
 
     def __str__(self):
         return self.name_car
@@ -25,10 +25,9 @@ class Car(models.Model):
 
 class SchemePart(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название схемы')
-    category = models.ForeignKey(CategoryParts, verbose_name='Категория запчастей')
-    image = models.ImageField(upload_to='/media/scheme', verbose_name='Изображение схемы')
-    car = models.ForeignKey(Car, verbose_name='Автомобиль')
-
+    category = models.ForeignKey(CategoryParts, verbose_name='Категория запчастей', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='media/scheme', verbose_name='Изображение схемы')
+    car = models.ForeignKey(Car, verbose_name='Автомобиль', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.num_scheme
@@ -39,5 +38,15 @@ class SchemePart(models.Model):
 
 
 class Parts(models.Model):
-    num_scheme = models.ForeignKey(SchemePart, verbose_name='Номер схемы')
-    num_parts = models.CharField()
+    num_scheme = models.ForeignKey(SchemePart, verbose_name='Номер схемы', on_delete=models.CASCADE)
+    num_parts = models.CharField(max_length=100, verbose_name='Номер запчасти на схеме')
+    articul = models.CharField(max_length=200, verbose_name='Артикул запчасти')
+    name = models.CharField(max_length=200, verbose_name='Название запчасти')
+    category = models.ForeignKey(CategoryParts, verbose_name='Категория', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Деталь'
+        verbose_name_plural = 'Детали'
