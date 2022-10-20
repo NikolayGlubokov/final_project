@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+
+                            <h5>{{part.name}}</h5>
+                            <p class="card-text">{{product.short_description}}</p>
+                        </div>
+                        <div class="card-footer text-center"> <a href="{% url 'journal_add' part.id %}">
+                            <button type="button" class="btn btn-outline-success">Отправить в корзину</button></a>
+                        </div>
+                    </div>
+                </div>
+
+</body>
+</html>

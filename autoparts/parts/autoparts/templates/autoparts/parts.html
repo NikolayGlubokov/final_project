@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-
+{% for p in parts %}
+<a href="{% url 'part' p.id %}">{{p.name}}</a>
+{% endfor %}
 </body>
 </html>
