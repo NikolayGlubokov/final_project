@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth, messages
-
+from autoparts.models import Journal
 from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
+from autoparts.models import Car
 
 
 def login(request):
@@ -40,19 +41,23 @@ def register(request):
 
 @login_required(login_url='/users/login')
 def profile(request):
+    car=Car.objects.all()
     user = request.user
     if request.method == "POST":
+        user.car_name=request.POST['length']
         form = UserProfileForm(data=request.POST, files=request.FILES, instance=user)
         if form.is_valid():
             form.save()
             return redirect('profile')
     else:
         form = UserProfileForm(instance=user)
-
+    journal = Journal.objects.all()
 
 
     context = {
         'form': form,
+        'journal':journal,
+        'car':car,
     }
     return render(request, 'users/profile.html', context)
 

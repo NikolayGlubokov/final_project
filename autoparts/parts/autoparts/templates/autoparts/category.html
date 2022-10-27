@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'autoparts/base.html' %}
+{% block content %}
+<div class="cards">
 {% for c in cat %}
-<a href=" {% url 'shemes' c.id %}">{{c.name_category}}</a>
+<div class="card">
+    <div>
+    <img src="{{ c.image.url }}"></div>
+    <br>
+    <br>
+    <div class="text">
+<a href=" {% url 'shemes' c.id %}">{{c.name_category}}</a></div></div>
 {% endfor %}
-</body>
-</html>
+    </div>
+{% endblock %}

@@ -51,6 +51,23 @@
                         {{form.email}}
                     </div>
                 </div>
+                <div class="form-row mb-2">
+                    <div class="col-lg-12">
+                        <div class="custom-file">
+                            <label class="custom-file-label" for="userCar">Автомобиль</label>
+                            {% if user.car_name %}
+                            {{user.car_name}}
+                            <a href="{% url 'category'%}">Запчасти</a>
+                            {% else %}
+                            <p><select name="length">
+                                {% for c in car %}
+                                <option>{{ c.name_car }}</option>
+                                {% endfor %}
+                            </select></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="col-lg-12" style="margin-top: 33px;">
                         <input class="btn btn-info btn-block" type="submit" value="Сохранить">
@@ -58,7 +75,8 @@
                 </div>
             </form>
         </div>
-<!---->
+        <!---->
     </div>
 </div>
+
 {% endblock %}

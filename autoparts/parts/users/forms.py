@@ -8,6 +8,7 @@ class UserProfileForm(UserChangeForm):
     email = forms.CharField(widget=forms.EmailInput(attrs={'readonly': 'True'}))
     image = forms.ImageField(widget=forms.FileInput(), required=False)
 
+
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'image')

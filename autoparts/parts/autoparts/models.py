@@ -4,6 +4,7 @@ from users.models import User
 
 class CategoryParts(models.Model):
     name_category = models.CharField(max_length=255, verbose_name='Название категории')
+    image=models.ImageField(upload_to='media/category',verbose_name='Изображение категории', blank=True)
 
     def __str__(self):
         return self.name_category
