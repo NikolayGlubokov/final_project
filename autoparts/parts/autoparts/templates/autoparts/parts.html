@@ -1,20 +1,58 @@
 {% extends 'autoparts/base.html' %}
 {% block content %}
-<img src="{{schem.image.url}}">
-<div class="cards">
-    {% for p in parts %}
-    <div class="card">
 
-        <form method="POST" action="{% url 'journal_add' p.id %}"> {% csrf_token %}
-            <a>{{p.name}}</a>
+<div class='box'>
+    <div class='semi'><img class='img2' src="{{schem.image.url}}"></div>
+    <div class='semi'>
+    <table>
+         <tr>
+             <td>Номер запчасти на схеме</td>
+             <td>Артикул запчасти</td>
+             <td>Название запчасти</td>
+             <td>Затраченная сумма</td>
+         </tr>
 
-            {{ form.as_p }}
+             {% for p in parts %}
+<form method="POST" action="{% url 'journal_add' p.id %}"> {% csrf_token %}
+          <tr>
+             <td>{{p.num_parts}}</td>
+             <td>{{p.articul}}</td>
+             <td>{{p.name}}</td>
+             <td>{{ form.as_p }}</td>
+          </tr>
+    </form>
+             {% endfor %}
+      </table>
+<div>
+         {% if parts %}
+{% if parts.has_other_pages %}
 
+<nav aria-label="Page navigation example">
+    <ul class="">
+        {% if parts.has_previous %}
+        <li class="">
+            <a class="" href="?page={{journal.previous_page_number}}" tabindex="-1"
+               aria-disabled="true">Предыдущая</a>
+        </li>
+        {% endif %}
+        {% for page in parts.paginator.page_range %}
+        <li class="">
+            <a class="" href="?page={{page}}">{{page}}</a></li>
+        {% endfor %}
+        {% if parts.has_next %}
+        <li class="">
+            <a class="" href="?page={{journal.next_page_number}}">Следующая</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{% endif %}
+            </div>
 
-        </form>
 
 
     </div>
-    {% endfor %}
+
 </div>
 {% endblock %}

@@ -14,7 +14,8 @@
     padding: 20px;
     border-radius:10px;
     opacity: .3;
-    font-family:monospace;
+
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 }
 .bottom_menu:hover{
     opacity: 1;
@@ -24,49 +25,48 @@
 }
 
 .card{ 
-    display: flex;
-    color: rgb(25, 156, 69);
+
+    color: #8D8173;
     border: 1px solid #383838;
     border-radius: 20px;
-width: 200px;
-
     margin: 20px;
     padding: 20px;
     display: block;
-    opacity: 0.3;
+    opacity: 0.6;
 
     box-shadow: 10px 10px 21px black,
                 -10px -10px 21px black;
     
 }
 .cards{
-    display: flex;
+   display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: right;
+    justify-content: space-around;
 }
-img{
-    width: 200px;
-    height: 200px;
+.img{
+ 
     border-radius: 20px;
     filter: invert(100%);
+    width: 100%;
 }
 .text{
     opacity: 1;
 }
 a:active{
     font-weight: bold;
-    color: green;
+    color: #8D8173;
 }
-a{
+a, p{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-weight: bold;
-    color: green;
+    color: #8D8173;
     text-decoration: none; 
     justify-content: space-between;
 }
 a:visited{
     font-weight: bold;
-    color: green;
+    color: #8D8173;
      
 }
 card:hover{
@@ -77,6 +77,95 @@ card:hover{
 }
 
 .card-body{
+    width: 200px;
+}
+.server{
+    border: 1px solid white;
+    display: flex;
+}
+.stat{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #383838;
+    color: cadetblue;
+    border: none
+}
+.semi{
+    width:50%;
+    margin: 20px;
+    padding: 20px;
+    display:block;
+ }
+ .tri{
+    display:flex;
+ }
+ .box{
+    color: rgb(245, 14, 14);
+    display: flex;
+ }
+ .img2{
+    border-radius: 20px;
+    width: 100%;
+}
+.cwidth{
     width: 400px;
-
+}
+ul{
+    display: flex;
+    justify-content: center;
+}
+li{
+    margin: 10px;
+    padding: 10px;
+}
+td{
+    width: 200px;
+    margin: 10px;
+}
+/* table{
+    background-color: #383838;
+    opacity: 0.6;
+} */
+.center{
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    background:#383838;
+    opacity: 0.7;
+    border-radius: 20px;
+    }
+    th {
+    font-size: 18px;
+    font-weight: 300;
+    padding: 12px 10px;
+    border-bottom: 2px solid #F56433;
+    color: #F56433;
+    }
+  
+    td {
+    padding: 10px;
+    color: #8D8173;
+    }
+   /* div{
+    border: 1px solid white;
+   } */
+   .height{
+    height: min-content;
+   }
+   h1{
+    text-align: center;
+    color: aliceblue;
+   }
+   h3{
+    text-align: center;
+    color: aliceblue;
+    margin: 20px;
+    padding: 10px;
 }

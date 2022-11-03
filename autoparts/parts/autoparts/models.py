@@ -62,3 +62,11 @@ class Journal(models.Model):
     price = models.IntegerField(verbose_name='Стоимость')
     date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     users = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Деталь'
+        verbose_name_plural = 'Детали'
+        ordering = ['-date']

@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import SchemePart, Parts, CategoryParts, Car, Journal
 from .forms import JournalForm
+from django.core.paginator import Paginator
 
 
 @login_required(login_url='/users/login')
@@ -39,8 +40,10 @@ def schemes(request, cat_id):
 @login_required(login_url='/users/login')
 def parts(request, schem_id):
     schem = SchemePart.objects.get(id = schem_id)
-    parts = Parts.objects.filter(num_scheme=schem_id)
     form = JournalForm()
+    paginator = Paginator(Parts.objects.filter(num_scheme=schem_id), 5)
+    page_number = request.GET.get('page')
+    parts = paginator.get_page(page_number)
     context = {'parts': parts, 'form': form, 'schem': schem}
     return render(request, 'autoparts/parts.html', context)
 

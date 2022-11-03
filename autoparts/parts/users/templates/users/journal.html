@@ -1,0 +1,52 @@
+<div>
+        {% if journal %}
+
+        <table class="box">
+            <tr>
+                <td>Номер схемы</td>
+                <td>Номер запчасти</td>
+                <td>Артикул запчасти</td>
+                <td>Название запчасти</td>
+                <td>Стоимость запчасти</td>
+                <td>Дата замены</td>
+
+            </tr>
+            {% for i in journal %}
+            <tr>
+                <td>{{i.num_scheme}}</td>
+                <td>{{i.num_parts}}</td>
+                <td>{{i.articul}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.date|date:"d,m,y"}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <div>
+            {% if journal %}
+            {% if journal.has_other_pages %}
+
+            <nav aria-label="Page navigation example">
+                <ul class="">
+                    {% if journal.has_previous %}
+                    <li class="">
+                        <a class="" href="?page={{journal.previous_page_number}}" tabindex="-1"
+                           aria-disabled="true">Предыдущая</a>
+                    </li>
+                    {% endif %}
+                    {% for page in journal.paginator.page_range %}
+                    <li class="">
+                        <a class="" href="?page={{page}}">{{page}}</a></li>
+                    {% endfor %}
+                    {% if journal.has_next %}
+                    <li class="">
+                        <a class="" href="?page={{journal.next_page_number}}">Следующая</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>

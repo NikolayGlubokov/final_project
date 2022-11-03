@@ -2,11 +2,12 @@
 {% block content %}
 <div class="cards">
 {% for s in schem %}
-<div class="card">
-    <div><img src="{{ s.image.url }}" class="schemes"></div>
+<div class="card cwidth ">
+    <img src="{{ s.image.url }}" class="schemes img">
     <br>
     <br>
-    <div><a href=" {% url 'parts' s.id %}">{{s.name}}</a></div>
+
+    <div><p><a href=" {% url 'parts' s.id %}">{{s.name}}</a></p></div>
 </div>
 {% endfor %}
 {% endblock %}

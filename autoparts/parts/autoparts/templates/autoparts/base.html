@@ -18,8 +18,9 @@
 <body>
     <div ><div class="menu">
         {% if request.user.is_authenticated %}
-        <div class="bottom_menu">{{user.username}} | <a href="{% url 'logout' %}">Выйти</a></div>
+        <div class="bottom_menu"><a href="{% url 'index' %}">{{user.username}}</a> | <a href="{% url 'logout' %}">Выйти</a></div>
         <div class="bottom_menu"><a href="{% url 'profile' %}">Профиль</a></div>
+        <div class="bottom_menu"><a href="{% url 'category'%}">Перейти к выбору запчастей</a></div>
         <div class="bottom_menu">Будущие проекты</div>
 
             {%else%}

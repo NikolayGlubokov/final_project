@@ -1,14 +1,14 @@
 {% extends 'autoparts/base.html' %}
 {% block content %}
-<div class="cards">
+<div class="cards center">
 {% for c in cat %}
-<div class="card">
+<div class="card card-body">
     <div>
-    <img src="{{ c.image.url }}"></div>
+    <img class ='img2' src="{{ c.image.url }}"></div>
     <br>
     <br>
     <div class="text">
-<a href=" {% url 'shemes' c.id %}">{{c.name_category}}</a></div></div>
+<p><a href=" {% url 'shemes' c.id %}">{{c.name_category}}</a></p></div></div>
 {% endfor %}
     </div>
 {% endblock %}
