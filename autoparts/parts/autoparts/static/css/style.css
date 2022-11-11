@@ -25,7 +25,10 @@
 }
 
 .card{ 
-
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
     color: #8D8173;
     border: 1px solid #383838;
     border-radius: 20px;
@@ -52,6 +55,7 @@
 }
 .text{
     opacity: 1;
+    text-align: center;
 }
 a:active{
     font-weight: bold;
@@ -114,14 +118,16 @@ card:hover{
 ul{
     display: flex;
     justify-content: center;
-}
+    
+    }
 li{
     margin: 10px;
     padding: 10px;
+    list-style-type: none;
 }
 td{
     width: 200px;
-    margin: 10px;
+    /* margin: 10px; */
 }
 /* table{
     background-color: #383838;
@@ -131,6 +137,7 @@ td{
     align-items: center;
     justify-content: space-around;
     text-align: center;
+    
 }
 table {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -168,4 +175,15 @@ table {
     color: aliceblue;
     margin: 20px;
     padding: 10px;
+}
+.cont{
+    width: max-content;
+}
+.abs_cent{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-height: 100vh;
 }
